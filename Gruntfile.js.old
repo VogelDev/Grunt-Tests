@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     //     title: "Project Name"
     //   },
     //   uncss: {
-    //     optiosn: {
+    //     options: {
     //       title: "did this work?",
     //       message: "and error somewhere",
     //     }
@@ -101,25 +101,13 @@ module.exports = function(grunt) {
       files: {
         'dist/index.html': ['dist/index.html']
       }
-    },
-
-    includeSource: {
-      options: {
-        basePath: ''
-      },
-      myTarget: {
-        files: {
-          'dist/index.html': 'index.html'
-        }
-      }
     }
 
   });
 
   // grunt.loadNpmTasks('grunt-uncss');
-  // grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-prettify');
-  grunt.loadNpmTasks('grunt-include-source');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -128,8 +116,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-  grunt.registerTask('default', ["clean", "concat", "uglify", "less", "cssmin", "includeSource"]);
+  // grunt.registerTask('default', ["clean", "concat", "uglify", "less", "uncss", "cssmin"]);
+  grunt.registerTask('default', ["clean", "concat", "uglify", "less", "cssmin"]);
 
-  //grunt.task.run('notify_hooks');
+  // grunt.task.run('notify_hooks');
 
 }
